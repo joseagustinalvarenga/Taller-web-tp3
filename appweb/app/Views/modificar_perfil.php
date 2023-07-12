@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="/css/style.css ">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('Taller-web-tp3/appweb/public/assets/css/style.css'); ?>">
         <link rel="icon" href="<?php echo base_url('/favicon.ico'); ?>">
         <title>Mi perfil</title>
     </head>
@@ -18,7 +18,8 @@
                         <h2>Datos de Inicio de Sesion</h2>
                         <div class="lineas_formulario">
                             <label class="etiquetas">E-mail *</label>
-                            <div id="imagen_email_valido" style></div>
+                            <div id="imagen_email_valido" style>
+                            </div>
                             <input type="email" name="email" class="campo_registro"  data-bs-toggle="tooltip" data-bs-placement="top" title="Ingrese el email con el que registrara su cuenta" id="example" onblur="comprobrarEmailEditar()" required>
                         </div>
                     </article>
@@ -116,7 +117,7 @@
                 </section>
                 <section>
                     <div class="div_banner">
-                        <img src="/img/usuario.png">
+                    <img src="<?php echo base_url('Taller-web-tp3/appweb/public/assets/img/welcome_videotrend.png'); ?>" id="imagen_banner" onclick="cambiarImagen()">                
                         <p>Al hacer clic en "Guardar cambios",<br> aceptas las Condiciones<br> y confirmas que leiste nuestra<br> Politica de datos, incluido el uso<br> de cookies.</p>
                     </div>
                 </section>
