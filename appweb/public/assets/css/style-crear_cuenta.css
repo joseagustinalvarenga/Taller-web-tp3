@@ -1,0 +1,147 @@
+:root {
+	--color-1: #171717;
+	--color-2: #810000;
+	--color-3: #DA0037;
+	--color-4: #EEEBDD;
+  }
+
+body {
+  margin: 15px 150px;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: var(--color-1);
+}
+
+h1 {
+	font-size: 2.5rem;
+	font-weight: bold;
+	color: var(--color-2);
+	font-family: 'Playfair Display'
+	}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-2);
+}
+
+.header {
+	display: flex;
+	justify-content: center;
+  }
+ 
+
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  background: var(--color-1);
+}
+
+.nav p {
+  margin: 5px 20px;
+}
+
+.nav a {
+  font-style: normal;
+  text-decoration: none;
+  color: white;
+}
+
+.nav a:hover {
+	color: var(--color-3);
+	text-decoration: underline;
+  }
+
+
+.section {
+  display: flex;
+}
+
+div {
+	margin-bottom: 10px;
+  }
+  
+  label, input {
+	margin-top: 5px;
+	margin-bottom: 5px;
+  }
+  
+.aside {
+  position: fixed;
+  margin-left: 650px;
+  margin-right: 155px;
+}
+
+.bannerDerecho {
+  text-align: left;
+  padding: 20px;
+  margin-top: 15px;
+  font-family: "Arial";
+}
+
+.datos_registro {
+  padding-left: 20px;
+  padding-right: 40px;
+  border-style:initial;
+  background-color: var(--color-4);
+}
+
+label {
+  margin-left: 30px;
+  display: inline-block;
+  width: 150px;
+}
+
+input {
+  width: 200px;
+}
+
+select {
+  width: 200px;
+}
+
+.boton-submit {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: var(--color-3);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.boton-submit:hover {
+	background-color: var(--color-2);
+  }
+
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-1);
+  margin-top: 5px;
+}
+
+.footer p {
+  margin: 5px;
+  font-size: 20px;
+  color: white;
+}
+
+.footer a {
+  color: white;
+}
+
+.footer a:hover {
+	color: var(--color-3);
+	text-decoration: underline;
+  }
+
+.tooltip {
+  z-index: 9999;
+}
