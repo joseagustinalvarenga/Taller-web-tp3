@@ -143,7 +143,7 @@
                 <div>
                     <div>
                         <label for="estatura">Estatura </label>
-                        <input type="number" id="estatura_ent" min="0" max="2" step="1"style="width: 40px;"   title="Ingrese su estatura">
+                        <input name="estatura" type="number" id="estatura_ent" min="0" max="2" step="1"style="width: 40px;"   title="Ingrese su estatura">
                         <span> , </span>
                         <input type="number" id="estatura_dec" min="00" max="99" step="01"style="width: 40px;">
                         <span> Metros </span>

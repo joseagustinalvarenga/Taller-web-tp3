@@ -40,8 +40,8 @@ class User extends BaseController
                     'pais' => $this->request->getPost('pais'),
                     'provincia' => $this->request->getPost('provincia'),
                     'ciudad' => $this->request->getPost('ciudades'),
-                    'calle' => $this->request->getPost('calle_user'),
-                    'altura' => $this->request->getPost('altura_calle'),
+                    'calle' => $this->request->getPost('direc'),
+                    'altura' => $this->request->getPost('estatura'),
                 ];
                 print_r($datosNuevoUsuario);
                 $nuevoUsuario->save($datosNuevoUsuario);
