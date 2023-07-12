@@ -43,6 +43,7 @@ class User extends BaseController
                     'calle' => $this->request->getPost('calle_user'),
                     'altura' => $this->request->getPost('altura_calle'),
                 ];
+                print_r($datosNuevoUsuario);
                 $nuevoUsuario->save($datosNuevoUsuario);
                 if(isset($nuevoUsuario->insertID)){
                     echo '<script language="javascript">alert("Usuario creado correctamente");</script>';

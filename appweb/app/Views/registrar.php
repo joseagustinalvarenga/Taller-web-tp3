@@ -44,7 +44,7 @@
                 <h3>Datos de Localización</h3>
                 <div>
                     <label class="etiquetas">Pais</label>
-                    <select name="Pais" class="desplegable" data-placement="top" title="Seleccione su pais">
+                    <select name="pais" class="desplegable" data-placement="top" title="Seleccione su pais">
                         <option value="" selected disabled hidden>Seleccione un país</option>
                         <option value="Argentina">Argentina</option>
                         <option value="Bolivia">Bolivia</option>
@@ -62,7 +62,7 @@
                     </div>
                     <div>
                     <label class="etiquetas">Provincia/Estado</label>
-                    <select name="Provincia" class="desplegable" data-placement="top" title="Seleccione su provincia">
+                    <select name="provincia" class="desplegable" data-placement="top" title="Seleccione su provincia">
                         <option value="" selected disabled hidden>Seleccione una provincia</option>
                         <option value="Buenos Aires">Buenos Aires</option>
                         <option value="Catamarca">Catamarca</option>
