@@ -84,7 +84,7 @@ class User extends BaseController
         $email = $this->request->getPost('email');
         $contrasena = $this->request->getPost('contrasenia');
         if($usuario->consultarIniciarSesion($email,$contrasena)){
-            return view('home_page');
+            return view('modificar_perfil');
             echo '<script language="javascript">alert("ENTRO ACA");</script>';
         }else{
             echo '<script language="javascript">alert("CORREO INCORRECTO ");</script>';
