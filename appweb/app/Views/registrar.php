@@ -17,7 +17,7 @@
         </nav>
         <aside class="aside">
 			<div class="bannerDerecho">
-                <p><img src="http://localhost/Taller-web-tp3/appweb/public/assets/img/welcome_videotrend.png" alt="welcome videotrend" width="60%"></p>
+                <p><img src="http://localhost/Taller-web-tp3/appweb/public/assets/img/pregunta.png" alt="welcome videotrend" width="60%"></p>
 				<p>Al hacer click en "Crear mi Cuenta", acepta las Condiciones y confirmas que leíste nuestra Política de datos, incluído el uso de cookies.</p>
 			</div>
 		</aside>

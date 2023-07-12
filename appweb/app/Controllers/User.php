@@ -19,7 +19,9 @@ class User extends BaseController
         if ($this->request->getMethod() == 'post'){
             $nuevoUsuario = new UserModel();
             if($nuevoUsuario->consultarEmail($this->request->getPost('email'))){
-                echo '<script language="javascript">alert("Correo Invalido");</script>';
+                echo '<script language="javascript">alert("Este Mail ya pertenece a un usuario");</script>';
+                return view('registrar');
+
             }else{
                 if($this->request->getPost('genero_masculino')  ){
                     $genero=1;
