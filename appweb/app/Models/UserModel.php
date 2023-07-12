@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class UserModel extends Model{
     protected $table = 'usuario';
-    protected $allowedFields = ['nombre','email','contrasena','apellido','genero','numtel','fechanacimiento','pagweb','pais','provincia','ciudad','calle','altura','id'];
+    protected $allowedFields = ['nombre','email','contrasena','apellido','genero','numtel','fechanacimiento','pagweb','pais','provincia','ciudad','calle','altura','id','token'];
 
     public function list(){
         $sql = "select * from usuario;";
@@ -56,4 +56,13 @@ class UserModel extends Model{
         }
     }
 
+    public function obtenerPorToken($token)
+    {
+        return $this->where('token', $token)->first();
+    }
+
+    public function actualizar($cuenta)
+    {
+        $this->update($cuenta['id'], $cuenta);
+    }
 }

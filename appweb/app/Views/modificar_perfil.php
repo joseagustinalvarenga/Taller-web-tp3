@@ -11,7 +11,7 @@
         <header class="titulo_registro">
             <h1>Mis datos</h1>
         </header>
-        <form id="formulario_modificacion" action="http://localhost/appweb/public/HomePage/index">
+        <form id="formulario_modificacion" action="http://localhost/appweb/public/HomePage/index" method="POST">
             <div class="datos_registro">
                 <section class="seccion_datos">
                     <article class="datos_formulario_registro">

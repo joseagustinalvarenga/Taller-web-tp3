@@ -30,6 +30,7 @@ class User extends BaseController
                 }else{
                     $genero=0;
                 }
+                $token = bin2hex(random_bytes(32));
                 $datosNuevoUsuario = [
                     'email' => $this->request->getPost('email'),
                     'contrasena' => md5($this->request->getPost('password')),
@@ -44,9 +45,12 @@ class User extends BaseController
                     'ciudad' => $this->request->getPost('ciudades'),
                     'calle' => $this->request->getPost('direc'),
                     'altura' => $this->request->getPost('estatura'),
+                    'token' => $token,
                 ];
                 print_r($datosNuevoUsuario);
                 $nuevoUsuario->save($datosNuevoUsuario);
+                $this->enviarCorreoVerificacion($datosNuevoUsuario['email'], $token);
+
                 if(isset($nuevoUsuario->insertID)){
                     echo '<script language="javascript">alert("Usuario creado correctamente");</script>';
                     return view ('iniciar_sesion');
@@ -54,6 +58,23 @@ class User extends BaseController
                 }
             }
         }
+    }
+
+    private function enviarCorreoVerificacion($email, $token)
+    {
+        // Configurar el envío de correo electrónico
+        $emailConfig = \Config\Services::email();
+        $emailConfig->setFrom('your@example.com', 'Your Name');
+        $emailConfig->setTo($email);
+        $emailConfig->setSubject('Verificación de cuenta');
+        
+        // Crear el enlace de verificación con el token
+        $verificationLink = base_url('email/validar_cuenta/' . $token);
+        $message = 'Por favor, haga clic en el siguiente enlace para verificar su cuenta: ' . $verificationLink;
+        $emailConfig->setMessage($message);
+        
+        // Enviar el correo electrónico
+        $emailConfig->send();
     }
 
     public function register(){
@@ -130,4 +151,30 @@ class User extends BaseController
         ];
         $modificarUsuario->update($id,$datosModificarUsuario);
     }
+
+    public function validar_cuenta($token) {
+        $model = new UserModel();
+        $cuenta = $model->obtenerPorToken($token);
+    
+        if ($cuenta) {
+            $tokenBaseDatos = $cuenta['token'];
+    
+            if ($token === $tokenBaseDatos) {
+                // Token válido: Actualizar el estado de la cuenta como validada
+                $cuenta['validada'] = true;
+                $model->actualizar($cuenta);
+                // Realizar otras acciones necesarias después de validar la cuenta
+    
+                // Redireccionar a una página de éxito o mostrar un mensaje de éxito
+                echo "Cuenta validada exitosamente";
+            } else {
+                // Token no válido: Mostrar un mensaje de error o redireccionar a una página de error
+                echo "El token no es válido";
+            }
+        } else {
+            // Token no válido: Mostrar un mensaje de error o redireccionar a una página de error
+            echo "El token no existe";
+        }
+    }
+    
 }
