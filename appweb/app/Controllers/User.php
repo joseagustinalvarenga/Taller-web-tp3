@@ -84,7 +84,7 @@ class User extends BaseController
             return view('home_page');
             echo '<script language="javascript">alert("ENTRO ACA");</script>';
         }else{
-            echo '<script language="javascript">alert("CORREO DE MIERDA ");</script>';
+            echo '<script language="javascript">alert("CORREO INCORRECTO ");</script>';
             return view ('iniciar_sesion');
         }
         
