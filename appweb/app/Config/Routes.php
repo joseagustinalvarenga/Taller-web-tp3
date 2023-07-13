@@ -38,6 +38,10 @@ $routes->match(['get','post'],'obtener_datos_usuario', 'User::obtener_datos_usua
 $routes->match(['get','post'],'iniciar_sesion', 'User::iniciar_sesion');
 $routes->match(['get','post'],'guardar_categoria','HomePage::guardar_categoria');
 $routes->get('User/validar_cuenta/(:any)', 'User::validar_cuenta/$1');
+$routes->get('trakt', 'TraktController::index');
+$routes->get('trakt/verComentarios/(:any)', 'TraktController::verComentarios/$1');
+
+
 
 
 /*
