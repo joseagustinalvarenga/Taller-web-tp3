@@ -156,24 +156,47 @@ class User extends BaseController
         return view('modificar_perfil');
     }
 
-    public function modificar_datos_usuario(){
-        $id = (int)($this->request->getPost('id'));
+    public function update(){
+        $usuario = new UserModel();
+        $datos_usuario = $usuario->buscarUsuario($this->request->getPost('email'));
+        $id = $datos_usuario['id'];
+        print_r($id);
         $modificarUsuario = new UserModel();
-        $datosModificarUsuario = [
+        if($this->request->getPost('genero_masculino')  ){
+            $genero=1;
+        }elseif ($this->request->getPost('genero_femenino')) {
+            $genero=2;
+        }else{
+            $genero=0;
+        }
+        $datosModificarUsuario= [
             'email' => $this->request->getPost('email'),
             'nombre' => $this->request->getPost('nombre'),
             'apellido' => $this->request->getPost('apellido'),
-            'genero' => $this->request->getPost('genero'),
-            'numtel' => $this->request->getPost('numtel'),
-            'fechanacimiento' => $this->request->getPost('fechanacimiento'),
-            'pagweb' => $this->request->getPost('pagweb'),
+            'genero' => $genero,
+            'numtel' => $this->request->getPost('num_tel'),
+            'fechanacimiento' => $this->request->getPost('fecha_nacimiento'),
+            'pagweb' => $this->request->getPost('pagina'),
             'pais' => $this->request->getPost('pais'),
             'provincia' => $this->request->getPost('provincia'),
-            'ciudad' => $this->request->getPost('ciudad'),
-            'calle' => $this->request->getPost('calle'),
-            'altura' => $this->request->getPost('altura')
+            'ciudad' => $this->request->getPost('ciudades'),
+            'direccion' => $this->request->getPost('direc'),
+           // 'estatura' => floatval($this->request->getPost('estatura_ent') . '.' . $this->request->getPost('estatura_dec')),
+            'colorOjos' => $this->request->getPost('color-ojos'),
+            //'username' => $this->request->getPost('username'),
         ];
+        print_r($datosModificarUsuario);
         $modificarUsuario->update($id,$datosModificarUsuario);
+        $filasAfectadas = $modificarUsuario->update($id, $datosModificarUsuario);
+
+        if ($filasAfectadas > 0) {
+            echo '<script>alert("Usuario modificado correctamente");</script>';
+            return view('iniciar_sesion');
+        } else {
+            echo '<script>alert("No se pudo modificar el usuario");</script>';
+            return view('modificar_perfil');
+        }
+
     }
 
     public function validar_cuenta($token) {

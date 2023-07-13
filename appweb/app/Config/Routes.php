@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'User::mostrar_login');
 $routes->match(['get','post'],'verificaremail', 'User::verificaremail');
 $routes->match(['get','post'],'insert', 'User::insert');
+$routes->match(['get','post'],'update', 'User::update');
 $routes->match(['get','post'],'obtener_datos_usuario', 'User::obtener_datos_usuario');
 $routes->match(['get','post'],'iniciar_sesion', 'User::iniciar_sesion');
 $routes->match(['get','post'],'guardar_categoria','HomePage::guardar_categoria');
