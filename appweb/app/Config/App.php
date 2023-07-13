@@ -23,7 +23,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost/Taller-web-tp3/appweb/public/';
+    public $baseURL = 'http://localhost';
 
     /**
      * --------------------------------------------------------------------------
