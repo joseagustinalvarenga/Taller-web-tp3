@@ -74,7 +74,7 @@ class User extends BaseController
     $emailConfig->setSubject('Verificación de cuenta');
 
     // Crear el enlace de verificación con el token
-    $verificationLink = base_url('User/validar_cuenta/' . $token);
+    $verificationLink = base_url('../Taller-web-tp3/appweb/public/User/validar_cuenta/' . $token);
 
     // Construir el contenido del mensaje
     $message = 'Por favor, haga clic en el siguiente enlace para verificar su cuenta: ' . $verificationLink;
@@ -143,6 +143,7 @@ class User extends BaseController
     }
 
     public function obtener_datos_usuario(){
+        console.log("entro paaaa ");
         $email = $this->request->getPost('email');
         $usuario = new UserModel();
         $datos_usuario = $usuario->buscarUsuario($email);

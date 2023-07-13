@@ -7,7 +7,7 @@ function obtener_datos(){
         type: "POST",
         dataType: "json",
         // URL a la que se enviará la solicitud Ajax
-        //url: "../app/Controllers/User.php",
+        url: "../../app/Controllers/User.php/obtener_datos_usuario",
         success : function(obtener_datos_usuario){
             console.log(obtener_datos_usuario)
             document.getElementById('nombre_user').value = datos_usuario.nombre
