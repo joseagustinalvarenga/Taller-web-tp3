@@ -1,4 +1,5 @@
 var UserEmail = localStorage.UserEmail                                                                                        
+var base_url = document.querySelector('meta[name="base-url"]').getAttribute("content");
 
 function obtener_datos(){
     console.log("genio");
@@ -7,9 +8,9 @@ function obtener_datos(){
         type: "POST",
         dataType: "json",
         // URL a la que se enviará la solicitud Ajax
-        url: "../../app/Controllers/User.php/obtener_datos_usuario",
-        success : function(obtener_datos_usuario){
-            console.log(obtener_datos_usuario)
+        url: base_url + "/Taller-web-tp3/appweb/app/Controllers/User/obtener_datos_usuario",
+        success : function(datos_usuario){
+            console.log(datos_usuario)
             document.getElementById('nombre_user').value = datos_usuario.nombre
             document.getElementById("altura").value = datos_usuario.altura
             document.getElementById("apellido_user").value = datos_usuario.apellido

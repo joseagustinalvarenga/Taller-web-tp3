@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta id="base-url" name="base-url" content="<?php echo base_url(); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('Taller-web-tp3/appweb/public/assets/css/style.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('Taller-web-tp3/appweb/public/assets/css/style.css'); ?>">
         <link rel="icon" href="<?php echo base_url('/favicon.ico'); ?>">
