@@ -36,7 +36,8 @@ $routes->match(['get','post'],'verificaremail', 'User::verificaremail');
 $routes->match(['get','post'],'insert', 'User::insert');
 $routes->match(['get','post'],'iniciar_sesion', 'User::iniciar_sesion');
 $routes->match(['get','post'],'guardar_categoria','HomePage::guardar_categoria');
-$routes->get('email/validar_cuenta/(:any)', 'User::validar_cuenta/$1');
+$routes->get('User/validar_cuenta/(:any)', 'User::validar_cuenta/$1');
+
 
 /*
  * --------------------------------------------------------------------

@@ -74,7 +74,7 @@ class User extends BaseController
     $emailConfig->setSubject('Verificación de cuenta');
 
     // Crear el enlace de verificación con el token
-    $verificationLink = base_url('email/validar_cuenta/' . $token);
+    $verificationLink = base_url('User/validar_cuenta/' . $token);
 
     // Construir el contenido del mensaje
     $message = 'Por favor, haga clic en el siguiente enlace para verificar su cuenta: ' . $verificationLink;
