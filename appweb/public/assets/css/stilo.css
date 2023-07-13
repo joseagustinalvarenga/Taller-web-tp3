@@ -1,0 +1,294 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    position: relative; 
+}
+
+.barra_superior_home_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+}
+
+.titulo_home_page {
+    margin: 0;
+    color: white;
+}
+
+.subti {
+    margin: 0;
+    color: white;
+}
+header{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
+
+.imagen_header{
+    height: 50px;
+    margin-right: 5px;
+}
+
+#imagen_boton_play{
+    height: 50px;
+}
+
+.titulo{
+    font-size: 1.5em;
+    margin-right: 30px;
+    margin-bottom: 0px;
+}
+
+#link_titulo{
+    text-decoration: none;
+    box-shadow: none;
+    color: white;
+}
+
+#link_titulo:hover{
+    color:red;
+}
+
+.menu{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 30px;
+    margin-top: 5px;
+}
+
+.menu_superior{
+    text-decoration: none;
+    box-shadow: none;
+    color:black;
+    margin-right: 3px;
+    margin-left: 3px;
+    font-size: 17px;
+}
+
+.imagen_usuario {
+    margin-right: 10px;
+}
+
+.campos_busqueda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.seccion_resultados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.seccion_video {
+    width: 80%;
+    overflow-y: auto;
+    border: 2px solid grey;
+    margin-bottom: 20px;
+}
+
+.tabla-videos {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-videos th,
+.tabla-videos td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.tabla-videos th {
+    background-color: #f2f2f2;
+}
+
+.tabla-videos tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.button_buscar {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.seccion_mis_categorias {
+    overflow-y: auto;
+    border: 2px solid grey;
+    width: 80%;
+}
+
+.lista_categorias {
+    height: 400px;
+    padding: 10px;
+}
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+.active,
+.accordion:hover {
+    background-color: rgb(173, 18, 18);
+}
+
+.panel {
+    grid-template-columns: 25% 25% 25% 25%;
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Agregado */
+}
+
+.barra_superior_home_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+}
+
+.titulo_home_page {
+    margin: 0;
+    color: white;
+}
+
+.usuario_home_page {
+    display: flex;
+    align-items: center;
+    position: absolute; /* Agregado */
+    top: 0; /* Agregado */
+    right: 0; /* Agregado */
+}
+
+.imagen_usuario {
+    margin-right: 10px;
+}
+
+.campos_busqueda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.seccion_resultados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.seccion_video {
+    width: 80%;
+    overflow-y: auto;
+    border: 2px solid grey;
+    margin-bottom: 20px;
+}
+
+.tabla-videos {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-videos th,
+.tabla-videos td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.tabla-videos th {
+    background-color: #f2f2f2;
+}
+
+.tabla-videos tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.button_buscar {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.seccion_mis_categorias {
+    overflow-y: auto;
+    border: 2px solid grey;
+    width: 80%;
+}
+
+.lista_categorias {
+    height: 400px;
+    padding: 10px;
+}
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+.active,
+.accordion:hover {
+    background-color: rgb(173, 18, 18);
+}
+
+.panel {
+    grid-template-columns: 25% 25% 25% 25%;
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+}

@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class UserModel extends Model{
     protected $table = 'usuario';
-    protected $allowedFields = ['nombre','email','contrasena','apellido','genero','numtel','fechanacimiento','pagweb','pais','provincia','ciudad','calle','altura','id','token'];
+    protected $allowedFields = ['nombre','email','contrasena','apellido','genero','numtel','fechanacimiento','pagweb','pais','provincia','ciudad','direccion','estatura','id','token','username','colorOjos'];
 
     public function list(){
         $sql = "select * from usuario;";

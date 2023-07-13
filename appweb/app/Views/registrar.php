@@ -141,13 +141,11 @@
                     <input type="color" id="color-ojos" name="color-ojos"   title="Ingrese su color de ojos">
                 </div>
                 <div>
-                    <div>
-                        <label for="estatura">Estatura </label>
-                        <input name="estatura" type="number" id="estatura_ent" min="0" max="2" step="1"style="width: 40px;"   title="Ingrese su estatura">
-                        <span> , </span>
-                        <input type="number" id="estatura_dec" min="00" max="99" step="01"style="width: 40px;">
-                        <span> Metros </span>
-                    </div>
+                    <label for="estatura">Estatura </label>
+                    <input name="estatura_ent" type="number" id="estatura_ent" min="0" max="2" step="1" style="width: 40px;" title="Ingrese su estatura">
+                    <span> , </span>
+                    <input type="number" id="estatura_dec" min="00" max="99" step="01" style="width: 40px;">
+                    <span> Metros </span>
                 </div>
                 <div>
                     <label for="pagina">Página Web</label>

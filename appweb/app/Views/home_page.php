@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="description" content="Home Page de la Guia de Actividades 3 de Taller de Aplicaciones Web">
         <meta name="keywords" content="CodeIgniter, Guia de Actividades">
-        <meta name="author" content="Tomas Cardozo, Martin Ojeda">
+        <meta name="author" content="IRALA - ALVARENGA">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <script src="https://apis.google.com/js/api.js"></script>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('Taller-web-tp3/appweb/public/assets/css/home_page.css'); ?>">
@@ -12,12 +12,16 @@
         <title>Video Trend - Home Page</title>
     </head>
     <body>
-        <header class="barra_superior_home_page">
-            <h1 class="titulo_home_page">VideoTrend</h1>
-            <div class="usuario_home_page" id="seccion_cabecera_usuario">
+    <header class="barra_superior_home_page">
+        <h1 class="titulo_home_page">VideoTrend</h1>
+        <div class="usuario_home_page" id="seccion_cabecera_usuario">
+            <a href="URL_DEL_ENLACE">
                 <img src="<?php echo base_url('Taller-web-tp3/appweb/public/assets/img/usuario2.png'); ?>" width="20px" class="imagen_usuario">
-            </div>
-        </header>
+                NombreDelUsuario
+            </a>
+        </div>
+    </header>
+
         <div class="campos_busqueda">
             <div class="lineas_formulario">
                 <label style="text-align: left;">Titulo</label>

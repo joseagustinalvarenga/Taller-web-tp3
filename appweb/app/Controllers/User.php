@@ -43,11 +43,12 @@ class User extends BaseController
                     'pais' => $this->request->getPost('pais'),
                     'provincia' => $this->request->getPost('provincia'),
                     'ciudad' => $this->request->getPost('ciudades'),
-                    'calle' => $this->request->getPost('direc'),
-                    'altura' => $this->request->getPost('estatura'),
+                    'direccion' => $this->request->getPost('direc'),
+                    'estatura' => floatval($this->request->getPost('estatura_ent') . '.' . $this->request->getPost('estatura_dec')),
+                    'colorOjos' => $this->request->getPost('color-ojos'),
+                    'username' => $this->request->getPost('username'),
                     'token' => $token,
                 ];
-                print_r($datosNuevoUsuario);
                 $nuevoUsuario->save($datosNuevoUsuario);
                 $this->enviarCorreoVerificacion($datosNuevoUsuario['email'], $token);
 
@@ -114,7 +115,7 @@ class User extends BaseController
         $email = $this->request->getPost('email');
         $contrasena = $this->request->getPost('contrasenia');
         if($usuario->consultarIniciarSesion($email,$contrasena)){
-            return view('modificar_perfil');
+            return redirect()->to(base_url('../Taller-web-tp3/appweb/public/TraktController/index'));
             echo '<script language="javascript">alert("ENTRO ACA");</script>';
         }else{
             echo '<script language="javascript">alert("CORREO INCORRECTO ");</script>';
@@ -131,7 +132,6 @@ class User extends BaseController
     }
 
     public function obtener_datos_usuario(){
-        console.log("entro paaaa ");
         $email = $this->request->getPost('email');
         $usuario = new UserModel();
         $datos_usuario = $usuario->buscarUsuario($email);
