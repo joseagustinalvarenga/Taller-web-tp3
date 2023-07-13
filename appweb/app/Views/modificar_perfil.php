@@ -5,6 +5,7 @@
         <link rel="stylesheet" type="text/css" href="/css/style.css ">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('Taller-web-tp3/appweb/public/assets/css/style.css'); ?>">
         <link rel="icon" href="<?php echo base_url('/favicon.ico'); ?>">
+    
         <title>Mi perfil</title>
     </head>
     <body>
@@ -18,8 +19,6 @@
                         <h2>Datos de Inicio de Sesion</h2>
                         <div class="lineas_formulario">
                             <label class="etiquetas">E-mail *</label>
-                            <div id="imagen_email_valido" style>
-                            </div>
                             <input type="email" name="email" class="campo_registro"  data-bs-toggle="tooltip" data-bs-placement="top" title="Ingrese el email con el que registrara su cuenta" id="example" onblur="comprobrarEmailEditar()" required>
                         </div>
                     </article>
@@ -124,9 +123,9 @@
             </div>
         </form>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <script src="<?php echo base_url('/assets/js/jquery-3.6.0.js'); ?>"></script> 
-        <script src="<?php echo base_url('/assets/js/Actividad3A.js'); ?>"></script>
-        <script src="<?php echo base_url('/assets/js/registro.js'); ?>"></script>
-        <script src="<?php echo base_url('/assets/js/modificar_perfil.js'); ?>"></script>
+        <script src="<?php echo base_url('Taller-web-tp3/appweb/public//assets/js/jquery-3.6.0.js'); ?>"></script> 
+        <script src="<?php echo base_url('Taller-web-tp3/appweb/public//assets/js/Actividad3A.js'); ?>"></script>
+        <script src="<?php echo base_url('Taller-web-tp3/appweb/public//assets/js/registro.js'); ?>"></script>
+        <script src="<?php echo base_url('Taller-web-tp3/appweb/public/assets/js/modificar_perfil.js'); ?>"></script>
     </body>
 </html>

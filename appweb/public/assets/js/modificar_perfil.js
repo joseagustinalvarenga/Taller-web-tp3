@@ -2,12 +2,13 @@ var UserEmail = localStorage.UserEmail
 obtener_datos()
 
 function obtener_datos(){
+    console.log("genio");
     $.ajax({
         data: {'email': UserEmail},
         type: "POST",
         dataType: "json",
         // URL a la que se enviará la solicitud Ajax
-        url: "http://localhost/appweb/public/User/obtener_datos_usuario",
+        //url: "app/Controllers/User.php",
         success : function(datos_usuario){
             console.log(datos_usuario)
             document.getElementById('nombre_user').value = datos_usuario.nombre
@@ -35,8 +36,10 @@ function obtener_datos(){
 }
 
 function comprobrarEmailEditar(){
+    console.log("capo");
     if(document.getElementById("example").value != UserEmail){
-        comprobrarEmail()
+        console.log(document.getElementById("example").value);
+        obtener_datos()
     }
 }
 
