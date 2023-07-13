@@ -12,7 +12,7 @@
         <header class="header">
             <h1>MODIFICAR MIS DATOS</h1>
         </header>
-        <form id="formulario_modificacion" action="http://localhost/appweb/public/HomePage/index" method="POST">
+        <form id="formulario_modificacion" action="update" method="POST">
             <div class="datos_registro">
             <h3>Datos de Inicio de Sesión</h3>
                 <div>
@@ -153,7 +153,6 @@
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'http://localhost/Taller-web-tp3/appweb/public/User/obtenerDatosUsuario', true);
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        console.log("hol");
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);

@@ -23,7 +23,7 @@
                 <p>Mira tus videos de Youtube como quieras</p>
             </div>
         <div class="usuario_home_page" id="seccion_cabecera_usuario">
-            <a href="URL_DEL_ENLACE">
+            <a href="http://localhost/Taller-web-tp3/appweb/public/User/mostrar_perfil">
                 <img src="<?php echo base_url('Taller-web-tp3/appweb/public/assets/img/confi.png'); ?>" width="50px" class="imagen_usuario">
                 NombreDelUsuario
             </a>
