@@ -6,6 +6,7 @@ use CodeIgniter\Config\BaseConfig;
 
 class Email extends BaseConfig
 {
+
     /**
      * @var string
      */
@@ -15,11 +16,6 @@ class Email extends BaseConfig
      * @var string
      */
     public $fromName;
-
-    /**
-     * @var string
-     */
-    public $recipients;
 
     /**
      * The "user agent"
@@ -33,7 +29,7 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $protocol = 'mail';
+    public $protocol = 'smtp';
 
     /**
      * The server path to Sendmail.
@@ -47,28 +43,28 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPHost;
+    public $SMTPHost = 'sandbox.smtp.mailtrap.io';
 
     /**
      * SMTP Username
      *
      * @var string
      */
-    public $SMTPUser;
+    public $SMTPUser = '91362a6935f26b';
 
     /**
      * SMTP Password
      *
      * @var string
      */
-    public $SMTPPass;
+    public $SMTPPass = '6ed4c815935959';
 
     /**
      * SMTP Port
      *
      * @var int
      */
-    public $SMTPPort = 25;
+    public $SMTPPort = 2525;
 
     /**
      * SMTP Timeout (in seconds)
@@ -89,7 +85,7 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPCrypto = 'tls';
+    public $SMTPCrypto;
 
     /**
      * Enable word-wrap
@@ -110,14 +106,14 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $mailType = 'text';
+    public $mailType = 'html';
 
     /**
      * Character set (utf-8, iso-8859-1, etc.)
      *
      * @var string
      */
-    public $charset = 'UTF-8';
+    public $charset = 'utf-8';
 
     /**
      * Whether to validate the email address

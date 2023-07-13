@@ -61,21 +61,42 @@ class User extends BaseController
     }
 
     private function enviarCorreoVerificacion($email, $token)
-    {
-        // Configurar el envío de correo electrónico
-        $emailConfig = \Config\Services::email();
-        $emailConfig->setFrom('your@example.com', 'Your Name');
-        $emailConfig->setTo($email);
-        $emailConfig->setSubject('Verificación de cuenta');
-        
-        // Crear el enlace de verificación con el token
-        $verificationLink = base_url('email/validar_cuenta/' . $token);
-        $message = 'Por favor, haga clic en el siguiente enlace para verificar su cuenta: ' . $verificationLink;
-        $emailConfig->setMessage($message);
-        
-        // Enviar el correo electrónico
-        $emailConfig->send();
+{
+    $emailConfig = \Config\Services::email();
+
+    // Configurar el remitente
+    $emailConfig->setFrom('pruebataller@example.com', 'PRUEBA');
+
+    // Configurar el destinatario
+    $emailConfig->setTo($email);
+
+    // Configurar el asunto
+    $emailConfig->setSubject('Verificación de cuenta');
+
+    // Crear el enlace de verificación con el token
+    $verificationLink = base_url('email/validar_cuenta/' . $token);
+
+    // Construir el contenido del mensaje
+    $message = 'Por favor, haga clic en el siguiente enlace para verificar su cuenta: ' . $verificationLink;
+    echo "hola:",json_encode($message);
+
+    // Establecer el contenido del mensaje
+    $emailConfig->setMessage($message);
+
+    // Enviar el correo electrónico y verificar el resultado
+    try {
+        if ($emailConfig->send()) {
+            echo("correo electronico enviado");
+            return true; // El correo se envió correctamente
+        } else {
+            echo("no envio nadaaaa ");
+            return false; // Error al enviar el correo
+        }
+    } catch (\Exception $e) {
+        log_message('error', 'Error al enviar el correo: ' . $e->getMessage());
+        return false; // Error al enviar el correo
     }
+}
 
     public function register(){
         return view('registrar');

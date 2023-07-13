@@ -38,6 +38,9 @@ class App extends BaseConfig
      */
     public $indexPage = 'index.php';
 
+    public $environment = 'development';
+
+
     /**
      * --------------------------------------------------------------------------
      * URI PROTOCOL
@@ -461,4 +464,7 @@ class App extends BaseConfig
      * @var bool
      */
     public $CSPEnabled = false;
+
+    public $logThreshold = 2;
+
 }
