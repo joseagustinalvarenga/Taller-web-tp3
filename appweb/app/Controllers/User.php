@@ -63,33 +63,17 @@ class User extends BaseController
     private function enviarCorreoVerificacion($email, $token)
 {
     $emailConfig = \Config\Services::email();
-
-    // Configurar el remitente
     $emailConfig->setFrom('pruebataller@example.com', 'PRUEBA');
-
-    // Configurar el destinatario
     $emailConfig->setTo($email);
-
-    // Configurar el asunto
     $emailConfig->setSubject('Verificación de cuenta');
-
-    // Crear el enlace de verificación con el token
     $verificationLink = base_url('User/validar_cuenta/' . $token);
-
-    // Construir el contenido del mensaje
     $message = 'Por favor, haga clic en el siguiente enlace para verificar su cuenta: ' . $verificationLink;
     echo "hola:",json_encode($message);
-
-    // Establecer el contenido del mensaje
     $emailConfig->setMessage($message);
-
-    // Enviar el correo electrónico y verificar el resultado
     try {
         if ($emailConfig->send()) {
-            echo("correo electronico enviado");
             return true; // El correo se envió correctamente
         } else {
-            echo("no envio nadaaaa ");
             return false; // Error al enviar el correo
         }
     } catch (\Exception $e) {
@@ -176,25 +160,22 @@ class User extends BaseController
     public function validar_cuenta($token) {
         $model = new UserModel();
         $cuenta = $model->obtenerPorToken($token);
-    
+        
         if ($cuenta) {
             $tokenBaseDatos = $cuenta['token'];
     
             if ($token === $tokenBaseDatos) {
-                // Token válido: Actualizar el estado de la cuenta como validada
                 $cuenta['validada'] = true;
                 $model->actualizar($cuenta);
-                // Realizar otras acciones necesarias después de validar la cuenta
-    
-                // Redireccionar a una página de éxito o mostrar un mensaje de éxito
-                echo "Cuenta validada exitosamente";
+                echo '<script language="javascript">alert("Cuenta validada correctamente");</script>';
+                    return view ('iniciar_sesion');
             } else {
-                // Token no válido: Mostrar un mensaje de error o redireccionar a una página de error
-                echo "El token no es válido";
+                echo '<script language="javascript">alert("El token no es válido");</script>';
+                    return view ('iniciar_sesion');
             }
         } else {
-            // Token no válido: Mostrar un mensaje de error o redireccionar a una página de error
-            echo "El token no existe";
+            echo '<script language="javascript">alert("No se pudo validar la cuenta. Ingrese un token válido");</script>';
+                    return view ('iniciar_sesion');
         }
     }
     
