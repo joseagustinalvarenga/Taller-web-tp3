@@ -119,7 +119,7 @@ class User extends BaseController
             echo '<script language="javascript">alert("ENTRO ACA");</script>';
         }else{
             echo '<script language="javascript">alert("CORREO INCORRECTO ");</script>';
-            return view ('iniciar_sesion');
+            return view ('modificar_perfil');
         }
         
     }
@@ -137,6 +137,20 @@ class User extends BaseController
         $datos_usuario = $usuario->buscarUsuario($email);
         echo json_encode($datos_usuario);
     }
+
+    public function obtenerDatosUsuario()
+    {
+        $email = $this->request->getPost('email');
+    
+        // Realizar la lógica para obtener los datos del usuario según el correo electrónico
+        $usuario = new UserModel();
+        $datos_usuario = $usuario->buscarUsuario($email);
+    
+        // Devolver la respuesta como JSON
+        return $this->response->setJSON($datos_usuario);
+    }
+    
+
 
     public function mostrar_perfil(){
         return view('modificar_perfil');
