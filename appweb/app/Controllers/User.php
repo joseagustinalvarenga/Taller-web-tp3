@@ -66,7 +66,11 @@ class User extends BaseController
     $emailConfig->setFrom('pruebataller@example.com', 'PRUEBA');
     $emailConfig->setTo($email);
     $emailConfig->setSubject('Verificación de cuenta');
-    $verificationLink = base_url('User/validar_cuenta/' . $token);
+
+    // Crear el enlace de verificación con el token
+    $verificationLink = base_url('../Taller-web-tp3/appweb/public/User/validar_cuenta/' . $token);
+
+    // Construir el contenido del mensaje
     $message = 'Por favor, haga clic en el siguiente enlace para verificar su cuenta: ' . $verificationLink;
     echo "hola:",json_encode($message);
     $emailConfig->setMessage($message);
@@ -127,6 +131,7 @@ class User extends BaseController
     }
 
     public function obtener_datos_usuario(){
+        console.log("entro paaaa ");
         $email = $this->request->getPost('email');
         $usuario = new UserModel();
         $datos_usuario = $usuario->buscarUsuario($email);
