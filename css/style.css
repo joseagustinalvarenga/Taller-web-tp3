@@ -65,7 +65,7 @@ li{
 }
 
 .banner{
-    display: flex;
+    flex:1;
     justify-content:center;
     align-items: center;
     height: 390px;

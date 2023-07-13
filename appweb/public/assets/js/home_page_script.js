@@ -12,7 +12,7 @@ var tokenSiguientePagina
 function start() {
     // Initializes the client with the API key and the Translate API.
     gapi.client.init({
-      'apiKey': 'AIzaSyBAv9cfm-Id9fskUkJnc1_L38FKAkJ7Qno',
+      'apiKey': 'AIzaSyAcKITx3BDErzpzsbrIr7nW_HmoHwWsWgU',
       'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'],
     }).then(function () {
       console.log("GAPI client loaded for API");
