@@ -38,7 +38,7 @@
 
    
     <h1>RESULTADOS DE LA BÚSQUEDA</h1>
-<div class="seccion_resultados_busqueda" id="seccion_resultados_busqueda">
+<div class="seccion_resultados" id="seccion_resultados_busqueda">
     <div class="seccion_video" id="seccion_video_busqueda">
         <div id="example_busqueda" class="tabla-videos">
             <table>

@@ -12,6 +12,12 @@
         <header class="header">
             <h1>MODIFICAR MIS DATOS</h1>
         </header>
+        <aside class="aside">
+			<div class="bannerDerecho">
+                <p><img src="http://localhost/Taller-web-tp3/appweb/public/assets/img/welcome_videotrend.png" alt="welcome videotrend" width="60%"></p>
+				<p>Al hacer click en "Guardar Cambios", acepta las Condiciones y confirmas que leíste nuestra Política de datos, incluído el uso de cookies.</p>
+			</div>
+		</aside>
         <form id="formulario_modificacion" action="update" method="POST">
             <div class="datos_registro">
             <h3>Datos de Inicio de Sesión</h3>
