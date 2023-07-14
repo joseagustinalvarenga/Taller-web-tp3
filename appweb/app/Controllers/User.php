@@ -73,7 +73,7 @@ class User extends BaseController
 
     // Construir el contenido del mensaje
     $message = 'Por favor, haga clic en el siguiente enlace para verificar su cuenta: ' . $verificationLink;
-    echo "hola:",json_encode($message);
+    //echo "hola:",json_encode($message);
     $emailConfig->setMessage($message);
     try {
         if ($emailConfig->send()) {
@@ -187,7 +187,7 @@ class User extends BaseController
             'colorOjos' => $this->request->getPost('color-ojos'),
             //'username' => $this->request->getPost('username'),
         ];
-        print_r($datosModificarUsuario);
+        //print_r($datosModificarUsuario);
         $modificarUsuario->update($id,$datosModificarUsuario);
         $filasAfectadas = $modificarUsuario->update($id, $datosModificarUsuario);
 

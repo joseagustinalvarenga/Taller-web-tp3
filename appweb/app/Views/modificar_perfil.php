@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta id="base-url" name="base-url" content="<?php echo base_url(); ?>">
         <link rel="stylesheet" type="text/css" href="http://localhost/Taller-web-tp3/appweb/public/assets/css/style-crear_cuenta.css ">
-        <link rel="icon" href="<?php echo base_url('/favicon.ico'); ?>">
+        <link rel="icon" href="<?php echo base_url('Taller-web-tp3/appweb/public/favicon.ico'); ?>">
     
         <title>Mi perfil</title>
     </head>

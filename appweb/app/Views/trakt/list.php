@@ -8,7 +8,7 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://apis.google.com/js/api.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('Taller-web-tp3/appweb/public/assets/css/stilo.css'); ?>">
-    <link rel="icon" href="<?php echo base_url('/favicon.ico'); ?>">
+    <link rel="icon" href="<?php echo base_url('Taller-web-tp3/appweb/public/favicon.ico'); ?>">
     <title>Video Trend - Home Page</title>
 </head>
 <body>
@@ -21,9 +21,9 @@
             <a href="<?php echo base_url('User/mostrar_login'); ?>" id="link_titulo"><h1>Video Trend</h1></a>
         </div>
         <div class="usuario_home_page" id="seccion_cabecera_usuario">
-            <a href="<?php echo base_url('User/mostrar_perfil'); ?>">
+            <a href="<?php echo base_url('../Taller-web-tp3/appweb/public/User/mostrar_perfil'); ?>">
                 <img src="<?php echo base_url('Taller-web-tp3/appweb/public/assets/img/confi.png'); ?>" width="50px" class="imagen_usuario">
-                NombreDelUsuario
+                Modificar perfil
             </a>
         </div>
     </header>
@@ -86,7 +86,7 @@
         </div>
     </div>
 </div>
-<?php echo "ID de usuario: " . $usuarioId; ?>
+
 
 <h1>PELÍCULAS RECOMENDADAS</h1>
 <div class="seccion_resultados" id="seccion_resultados">
@@ -129,12 +129,14 @@
     </div>
 </div>
 
-    <button onclick="paggination()">Buscar Más</button>
+    
 
-    <h2 style="text-align: center;">Mis categorias:</h2>
-    <div class="seccion_mis_categorias">
-        <div class="lista_categorias" id="lista_categorias">
-        </div>
+    <h2 style="text-align: center;">Mi biblioteca:</h2>
+    <div class="seccion_biblioteca">
+        <a href="<?php echo base_url('../Taller-web-tp3/appweb/public/TraktController/mostrarBiblioteca/'.$usuarioId); ?>" class="boton-mi-biblioteca">Ver mis videos guardados</a>
+        <br></br>
+        <br></br>
+        <br></br>
     </div>
 
     <script src="<?php echo base_url('../Taller-web-tp3/appweb/public/assets/js/home_page_script.js'); ?>"></script>

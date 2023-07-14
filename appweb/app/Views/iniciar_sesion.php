@@ -4,10 +4,10 @@
         <meta charset="UTF-8">
         <meta name="description" content="Ejercicio 3 de la Guia de Actividades de Taller de Aplicaciones Web">
         <meta name="keywords" content="HTML, JS, CSS, Guia de Actividades">
-        <meta name="author" content="Tomas Cardozo, Martin Ojeda">
+        <meta name="author" content="ALVARENGA - IRALA">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('Taller-web-tp3/appweb/public/assets/css/style.css'); ?>">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-        <link rel="icon" href="<?php echo base_url('/favicon.ico'); ?>">
+        <link rel="icon" href="<?php echo base_url('Taller-web-tp3/appweb/public/favicon.ico'); ?>">
         <title>Video Trend</title>
     </head>
     <body>

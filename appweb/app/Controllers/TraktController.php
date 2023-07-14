@@ -7,6 +7,14 @@ use App\Models\PeliculaModel;
 class TraktController extends Controller
 {
     private $apiKey = "52724ba78d1d787ef10c7580921676b1cb1ee71fe6ffc10c6f9d68b404d8c19a";
+    protected $PeliculaModel;
+
+    public function __construct()
+    {
+        $this->PeliculaModel = new PeliculaModel();
+    }
+
+
 
     public function index($usuarioId)
     {
@@ -121,7 +129,6 @@ class TraktController extends Controller
 public function guardarPelicula($usuarioId)
 {
     //$usuarioId = $this->request->getPost('usuarioId');
-    print_r("holiiii", $usuarioId);
     // Obtén los datos de la película desde la solicitud POST
     $titulo = $this->request->getPost('titulo');
     $anio = $this->request->getPost('anio');
@@ -146,6 +153,15 @@ public function guardarPelicula($usuarioId)
     // Redirige a la página de listado de películas o realiza cualquier otra acción deseada
     return redirect()->to(base_url('../Taller-web-tp3/appweb/public/TraktController/index/'. $usuarioId));
 }
+
+    public function mostrarBiblioteca($usuarioId)
+    {        
+        $videosGuardados = $this->PeliculaModel->obtenerVideosGuardados($usuarioId);
+        //print_r($videosGuardados);
+        $data['videosGuardados'] = $videosGuardados;
+
+        return view('trakt/mi_biblioteca', $data);
+    }
 
 
 

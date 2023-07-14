@@ -45,6 +45,7 @@ header{
     font-size: 1.5em;
     margin-right: 30px;
     margin-bottom: 0px;
+    color: white;
 }
 
 #link_titulo{
@@ -144,20 +145,8 @@ header{
     padding: 10px;
 }
 
-.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.4s;
-}
 
-.active,
-.accordion:hover {
+.active {
     background-color: rgb(173, 18, 18);
 }
 
@@ -193,7 +182,7 @@ body {
 .usuario_home_page {
     display: flex;
     align-items: center;
-    position: absolute; /* Agregado */
+    position: absolute;
     top: 0; /* Agregado */
     right: 0; /* Agregado */
 }
@@ -267,21 +256,7 @@ body {
     height: 400px;
     padding: 10px;
 }
-
-.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.4s;
-}
-
-.active,
-.accordion:hover {
+.active {
     background-color: rgb(173, 18, 18);
 }
 

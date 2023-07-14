@@ -1,2 +1,0 @@
-El trabajo fue desarrollado en colaboracion entre los alumnos Cardozo Tomas Agustin y Ojeda Martin Hernan.
-Para ingresar a la pantalla de inicio, fue configurada en el siguiente link: http://localhost/appweb/public/

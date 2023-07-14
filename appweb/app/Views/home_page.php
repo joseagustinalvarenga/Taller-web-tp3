@@ -8,7 +8,7 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <script src="https://apis.google.com/js/api.js"></script>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('Taller-web-tp3/appweb/public/assets/css/home_page.css'); ?>">
-        <link rel="icon" href="<?php echo base_url('/favicon.ico'); ?>">
+        <link rel="icon" href="<?php echo base_url('Taller-web-tp3/appweb/public/favicon.ico'); ?>">
         <title>Video Trend - Home Page</title>
     </head>
     <body>

@@ -37,13 +37,13 @@ $routes->match(['get','post'],'insert', 'User::insert');
 $routes->match(['get','post'],'update', 'User::update');
 $routes->match(['get','post'],'obtener_datos_usuario', 'User::obtener_datos_usuario');
 $routes->match(['get','post'],'iniciar_sesion', 'User::iniciar_sesion');
-$routes->match(['get','post'],'guardar_categoria','HomePage::guardar_categoria');
 $routes->get('User/validar_cuenta/(:any)', 'User::validar_cuenta/$1');
 $routes->get('trakt', 'TraktController::index');
 $routes->get('trakt/verComentarios/(:any)', 'TraktController::verComentarios/$1');
 $routes->post('/buscar-pelicula', 'TraktController::buscarPelicula');
 $routes->post('guardarPelicula/(:segment)', 'TraktController::guardarPelicula/$1');
-
+$routes->get('mi-biblioteca', 'TraktController::mostrarBiblioteca');
+$routes->get('mostrarBiblioteca/(:segment)', 'TraktController::mostrarBiblioteca/$1');
 
 
 
