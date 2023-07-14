@@ -3,19 +3,20 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
-
+use App\Models\PeliculaModel;
 class TraktController extends Controller
 {
     private $apiKey = "52724ba78d1d787ef10c7580921676b1cb1ee71fe6ffc10c6f9d68b404d8c19a";
 
-    public function index()
-{
-    $recommendations = $this->getRecommendedMovies();
-    $data['recommendations'] = $recommendations;
-    $data['results'] = []; // Inicialmente, los resultados de búsqueda están vacíos
-    //print_r($data);
-    return view('trakt/list', $data);
-}
+    public function index($usuarioId)
+    {
+        $recommendations = $this->getRecommendedMovies();
+        $data['recommendations'] = $recommendations;
+        $data['results'] = []; // Inicialmente, los resultados de búsqueda están vacíos
+        $data['usuarioId'] = $usuarioId; // Pasar el ID del usuario a la vista
+        return view('trakt/list', $data);
+    }
+    
     public function searchMovies($query)
     {
         $query = urlencode($query);
@@ -81,7 +82,7 @@ class TraktController extends Controller
         return view('trakt/comments', ['comments' => $comments]);
     }
 
-    public function buscarPelicula()
+    public function buscarPelicula($usuarioId)
 {
     // Obtener el título de la película desde la solicitud POST
     $titulo = $this->request->getPost('titulo');
@@ -111,10 +112,41 @@ class TraktController extends Controller
     // Pasar los resultados de búsqueda y las películas recomendadas a la vista
     $data['results'] = $results;
     $data['recommendations'] = $recommendations;
+    $data['usuarioId'] = $usuarioId;
     //print_r($data['results']);
     // Cargar la vista para mostrar los resultados de búsqueda y las películas recomendadas
     echo view('trakt/list', $data);
 }
-    
-    
+
+public function guardarPelicula($usuarioId)
+{
+    //$usuarioId = $this->request->getPost('usuarioId');
+    print_r("holiiii", $usuarioId);
+    // Obtén los datos de la película desde la solicitud POST
+    $titulo = $this->request->getPost('titulo');
+    $anio = $this->request->getPost('anio');
+    $descripcion = $this->request->getPost('descripcion');
+    $espectadores = $this->request->getPost('espectadores');
+
+    // Crea un nuevo objeto PeliculaModel
+    $peliculaModel = new PeliculaModel();
+
+    // Define los datos de la película
+    $datosPelicula = [
+        'id_usuario' => $usuarioId,
+        'titulo' => $titulo,
+        'anio' => $anio,
+        'descripcion' => $descripcion,
+        'espectadores' => $espectadores
+    ];
+    print_r( $datosPelicula);
+    // Inserta la película en la base de datos
+    $peliculaModel->insert($datosPelicula);
+
+    // Redirige a la página de listado de películas o realiza cualquier otra acción deseada
+    return redirect()->to(base_url('../Taller-web-tp3/appweb/public/TraktController/index/'. $usuarioId));
+}
+
+
+
 }

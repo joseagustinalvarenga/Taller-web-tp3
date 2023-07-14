@@ -29,7 +29,7 @@
     </header>
 
     <div class="campos_busqueda">
-        <form action="<?php echo base_url('../Taller-web-tp3/appweb/public/TraktController/buscarPelicula'); ?>" method="post">
+        <form action="<?php echo base_url('../Taller-web-tp3/appweb/public/TraktController/buscarPelicula/'.$usuarioId); ?>" method="post">
             <input type="text" id="tituloPelicula" placeholder="Título de la película" name="titulo">
             <input type="text" id="categoriaPelicula" placeholder="Categoría de la película" name="categoria">
             <button type="submit">Buscar</button>
@@ -37,7 +37,7 @@
     </div>
 
    
-<h1>RESULTADOS DE LA BÚSQUEDA</h1>
+    <h1>RESULTADOS DE LA BÚSQUEDA</h1>
 <div class="seccion_resultados_busqueda" id="seccion_resultados_busqueda">
     <div class="seccion_video" id="seccion_video_busqueda">
         <div id="example_busqueda" class="tabla-videos">
@@ -46,9 +46,10 @@
                     <tr>
                         <th>Título</th>
                         <th>Año</th>
-                        <th>Descripcion</th>
-                        <th>Espectadores</th>s
+                        <th>Descripción</th>
+                        <th>Espectadores</th>
                         <th>Ver Comentarios</th>
+                        <th>Guardar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,19 +63,30 @@
                             <td>
                                 <a href="<?php echo base_url('../Taller-web-tp3/appweb/public/TraktController/verComentarios/' . $result->movie->ids->trakt); ?>">Ver Comentarios</a>
                             </td>
+                            <td>
+                                <form action="<?php echo base_url('../Taller-web-tp3/appweb/public/TraktController/guardarPelicula/'.$usuarioId); ?>" method="post">
+                                    
+                                    <input type="hidden" name="peliculaId" value="<?php echo $result->movie->ids->trakt; ?>">
+                                    <input type="hidden" name="titulo" value="<?php echo $result->movie->title; ?>">
+                                    <input type="hidden" name="anio" value="<?php echo $result->movie->year; ?>">
+                                    <input type="hidden" name="descripcion" value="<?php echo $result->movie->overview; ?>">
+                                    <input type="hidden" name="espectadores" value="<?php echo $result->movie->ids->trakt; ?>">
+                                    <button type="submit">Guardar</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else : ?>
                     <tr>
-                        <td colspan="5">No se encontraron resultados.</td>
+                        <td colspan="6">No se encontraron resultados.</td>
                     </tr>
                 <?php endif; ?>
-
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<?php echo "ID de usuario: " . $usuarioId; ?>
 
 <h1>PELÍCULAS RECOMENDADAS</h1>
 <div class="seccion_resultados" id="seccion_resultados">
