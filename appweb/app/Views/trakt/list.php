@@ -14,14 +14,14 @@
 <body>
     <header class="barra_superior_home_page">
         <div class="imagen_header">
-            <a href="http://localhost/Taller-web-tp3/appweb/public/User/mostrar_login" id="link_imagen">
+            <a href="<?php echo base_url('User/mostrar_login'); ?>" id="link_imagen">
                 <img src="<?php echo base_url('Taller-web-tp3/appweb/public/assets/img/logo.png'); ?>" id="imagen_boton_play"></a>
         </div>
         <div class="titulo">
-            <a href="http://localhost/Taller-web-tp3/appweb/public/User/mostrar_login" id="link_titulo"><h1>Video Trend</h1></a>
+            <a href="<?php echo base_url('User/mostrar_login'); ?>" id="link_titulo"><h1>Video Trend</h1></a>
         </div>
         <div class="usuario_home_page" id="seccion_cabecera_usuario">
-            <a href="http://localhost/Taller-web-tp3/appweb/public/User/mostrar_perfil">
+            <a href="<?php echo base_url('User/mostrar_perfil'); ?>">
                 <img src="<?php echo base_url('Taller-web-tp3/appweb/public/assets/img/confi.png'); ?>" width="50px" class="imagen_usuario">
                 NombreDelUsuario
             </a>
@@ -29,80 +29,93 @@
     </header>
 
     <div class="campos_busqueda">
-        <input type="text" id="tituloPelicula" placeholder="Título de la película" name="tituloPelicula">
-        <input type="text" id="categoriaPelicula" placeholder="Categoría de la película" name="categoriaPelicula">
-        <button onclick="buscarPelicula()">Buscar</button>
+        <form action="<?php echo base_url('../Taller-web-tp3/appweb/public/TraktController/buscarPelicula'); ?>" method="post">
+            <input type="text" id="tituloPelicula" placeholder="Título de la película" name="titulo">
+            <input type="text" id="categoriaPelicula" placeholder="Categoría de la película" name="categoria">
+            <button type="submit">Buscar</button>
+        </form>
     </div>
 
-    <h1 >RESULTADOS DE LA BÚSQUEDA</h1>
-    <div class="seccion_resultados_busqueda" id="seccion_resultados_busqueda">
-        <div class="seccion_video" id="seccion_video_busqueda">
-            <div id="example_busqueda" class="tabla-videos">
-                <table>
-                    <thead>
+   
+<h1>RESULTADOS DE LA BÚSQUEDA</h1>
+<div class="seccion_resultados_busqueda" id="seccion_resultados_busqueda">
+    <div class="seccion_video" id="seccion_video_busqueda">
+        <div id="example_busqueda" class="tabla-videos">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Año</th>
+                        <th>Descripcion</th>
+                        <th>Espectadores</th>s
+                        <th>Ver Comentarios</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php if (!empty($results)) : ?>
+                    <?php foreach ($results as $result) : ?>
                         <tr>
-                            <th>Título</th>
-                            <th>Año</th>
-                            <th>Género</th>
-                            <th>Espectadores</th>
-                            <th>Codigo</th>
-                            <th>Ver Comentarios</th>
+                            <td><?php echo $result->movie->title; ?></td>
+                            <td><?php echo $result->movie->year; ?></td>
+                            <td><?php echo $result->movie->overview; ?></td>
+                            <td><?php echo $result->movie->ids->trakt; ?></td>
+                            <td>
+                                <a href="<?php echo base_url('../Taller-web-tp3/appweb/public/TraktController/verComentarios/' . $result->movie->ids->trakt); ?>">Ver Comentarios</a>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <?php if (isset($results)) : ?>
-                            <?php foreach ($results as $movie) : ?>
-                                <tr>
-                                    <td><?php echo $movie->movie->title; ?></td>
-                                    <td><?php echo $movie->movie->year; ?></td>
-                                    <td><?php echo $movie->movie->ids->slug; ?></td>
-                                    <td><?php echo $movie->watchers; ?></td>
-                                    <td><?php echo $movie->movie->ids->imdb; ?></td>
-                                    <td>
-                                        <a href="<?php echo base_url('../Taller-web-tp3/appweb/public/TraktController/verComentarios/' . $movie->movie->ids->trakt); ?>">Ver Comentarios</a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <tr>
+                        <td colspan="5">No se encontraron resultados.</td>
+                    </tr>
+                <?php endif; ?>
 
-    <h1 >PELICULAS RECOMENDADAS</h1>
-    <div class="seccion_resultados" id="seccion_resultados">
-        <div class="seccion_video" id="seccion_video">
-            <div id="example" class="tabla-videos">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Título</th>
-                            <th>Año</th>
-                            <th>Género</th>
-                            <th>Espectadores</th>
-                            <th>Codigo</th>
-                            <th>Ver Comentarios</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($movies as $movie) : ?>
-                            <tr>
-                                <td><?php echo $movie->movie->title; ?></td>
-                                <td><?php echo $movie->movie->year; ?></td>
-                                <td><?php echo $movie->movie->ids->slug; ?></td>
-                                <td><?php echo $movie->watchers; ?></td>
-                                <td><?php echo $movie->movie->ids->imdb; ?></td>
-                                <td>
-                                    <a href="<?php echo base_url('../Taller-web-tp3/appweb/public/TraktController/verComentarios/' . $movie->movie->ids->trakt); ?>">Ver Comentarios</a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
+
+<h1>PELÍCULAS RECOMENDADAS</h1>
+<div class="seccion_resultados" id="seccion_resultados">
+    <div class="seccion_video" id="seccion_video">
+        <div id="example" class="tabla-videos">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Año</th>
+                        <th>Género</th>
+                        <th>Espectadores</th>
+                        <th>Código</th>
+                        <th>Ver Comentarios</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php if (!empty($recommendations)) : ?>
+                    <?php foreach ($recommendations as $recommendation) : ?>
+                        <tr>
+                            <td><?php echo $recommendation->movie->title; ?></td>
+                            <td><?php echo $recommendation->movie->year; ?></td>
+                            <td><?php echo $recommendation->movie->ids->slug; ?></td>
+                            <td><?php echo $recommendation->watchers; ?></td>
+                            <td><?php echo $recommendation->movie->ids->imdb; ?></td>
+                            <td>
+                                <a href="<?php echo base_url('../Taller-web-tp3/appweb/public/TraktController/verComentarios/' . $recommendation->movie->ids->trakt); ?>">Ver Comentarios</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <tr>
+                        <td colspan="6">No hay películas recomendadas.</td>
+                    </tr>
+                <?php endif; ?>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
     <button onclick="paggination()">Buscar Más</button>
 
@@ -112,6 +125,6 @@
         </div>
     </div>
 
-    <script src="<?php echo base_url('/assets/js/home_page_script.js'); ?>"></script>
+    <script src="<?php echo base_url('../Taller-web-tp3/appweb/public/assets/js/home_page_script.js'); ?>"></script>
 </body>
 </html>
