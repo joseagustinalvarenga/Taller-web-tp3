@@ -18,7 +18,7 @@
                 <img src="<?php echo base_url('Taller-web-tp3/appweb/public/assets/img/logo.png'); ?>" id="imagen_boton_play"></a>
         </div>
         <div class="titulo">
-            <a href="<?php echo base_url('User/mostrar_login'); ?>" id="link_titulo"><h1>Video Trend</h1></a>
+            <a href="<?php echo base_url('Taller-web-tp3/appweb/public/User/mostrar_login'); ?>" id="link_titulo"><h1>Video Trend</h1></a>
         </div>
         <div class="usuario_home_page" id="seccion_cabecera_usuario">
             <a href="<?php echo base_url('../Taller-web-tp3/appweb/public/User/mostrar_perfil'); ?>">

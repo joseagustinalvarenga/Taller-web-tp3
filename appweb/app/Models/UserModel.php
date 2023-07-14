@@ -30,11 +30,11 @@ class UserModel extends Model{
         $result = $x->where('email', $email)->get()->getFirstRow();
         if($result){
             if (md5($contrasena)===$result->contrasena) {
-                echo  ("entro");
+               // echo  ("entro");
                 return True;
             } else {
-                echo  ("contra mala");
-                //return False;
+                //echo  ("contra mala");
+                return False;
             }
         } else {
             echo ("correo no encontrado");

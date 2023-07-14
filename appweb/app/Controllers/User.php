@@ -117,10 +117,9 @@ class User extends BaseController
         if($usuario->consultarIniciarSesion($email,$contrasena)){
             $usuarioId = $usuario->buscarId($email);
             return redirect()->to(base_url('../Taller-web-tp3/appweb/public/TraktController/index/'. $usuarioId));
-            echo '<script language="javascript">alert("ENTRO ACA");</script>';
         }else{
             echo '<script language="javascript">alert("CORREO INCORRECTO ");</script>';
-            return view ('modificar_perfil');
+            return view ('iniciar_sesion');
         }
         
     }
